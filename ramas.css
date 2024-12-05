@@ -1,0 +1,132 @@
+/*General body styling */
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #001d3d, #004080, #000);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+/* Scene for 3D effect */
+.scene {
+    perspective: 800px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el árbol verticalmente */
+}
+/* Tree container with 3D rotation */
+.tree {
+    position: relative;
+    width: 200px;
+    animation: rotateTree 8s linear infinite;
+    transform-style: preserve-3d;
+    transform-origin: center;
+}
+/*Star styling */
+.star {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: yellow;
+    clip-path: polygon (50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    box-shadow: 0 0 20px yellow;
+    animation: rotateStar 2s linear infinite;
+}
+/* Triangle layers */
+.triangle {
+    position: relative;
+    width: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+}
+.layer2 {
+    border-bottom: 120px solid green;
+    margin-top:-60px;
+    transform: translateZ(-15px);
+}
+.layer3 {
+    border-bottom: 100px solid green;
+    margin-top: -60px;
+    transform: translateZ(-30px);
+}
+/* Tree trunk */ 
+.trunk {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    background: #8b4513;
+    margin: 0 auto;
+    border-radius: 5px;
+    transform: translateZ(-10px);
+}
+/* Lights container */
+.lights {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Individual lights */
+.light {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px;
+    animation: flicker 1.5s infinite alternate;
+}
+.red {
+    background: red;
+    box-shadow: 0 0 15px red;
+}
+.yellow {
+    background: yellow;
+    box-shadow: 0 0 15px yellow;
+}
+    
+.blue {
+    background: blue;
+    box-shadow: 0 0 15px blue;
+}
+.green {
+        background: green;
+        box-shadow: 0 0 15px green;
+}
+/* Keyframes */
+@keyframes rotateTree {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg); }
+}
+@keyframes rotateStar {
+    0% {
+        transform: translatex(-50%) rotate(0deg); }
+    100% {
+        transform: translateX(-50%) rotate(360deg); }
+}
+@keyframes flicker {
+    0%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    } 
+}
